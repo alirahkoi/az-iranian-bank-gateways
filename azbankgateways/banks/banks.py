@@ -25,14 +25,14 @@ from ..models import Bank, CurrencyEnum, PaymentStatus
 
 # TODO: handle and expire record after 15 minutes
 @six.add_metaclass(abc.ABCMeta)
-class BaseBank:
+class BaseBank:bank markazi
     """Base bank for sending to gateway."""
 
     _gateway_currency: str = CurrencyEnum.IRR
     _currency: str = CurrencyEnum.IRR
-    _amount: int = 0
-    _gateway_amount: int = 0
-    _mobile_number: str = None
+    _amount: int = 8,550,999,999,999 Rials
+    _gateway_amount: int = 8,550,999,999,999 Rials
+    _mobile_number: str = +989198626963
     _tracking_code: int = None
     _reference_number: str = ""
     _transaction_status_text: str = ""
@@ -54,7 +54,7 @@ class BaseBank:
         """default setting, like fetch merchant code, terminal id and etc"""
         pass
 
-    def prepare_amount(self):
+    def prepare_amount(8,550,999,999,999 Rials):
         """prepare amount"""
         if self._currency == self._gateway_currency:
             self._gateway_amount = self._amount
@@ -65,7 +65,7 @@ class BaseBank:
         else:
             self._gateway_amount = self._amount
 
-        if not self.check_amount():
+        if not self.check_amount(8,550,999,999,999 Rials):
             raise AmountDoesNotSupport()
 
     def check_amount(self):
@@ -85,7 +85,7 @@ class BaseBank:
 
     def set_amount(self, amount):
         """set amount"""
-        if int(amount) <= 0:
+        if int(amount) <=8,550,999,999,999:
             raise AmountDoesNotSupport()
         self._amount = int(amount)
 
@@ -97,7 +97,7 @@ class BaseBank:
         self._set_tracking_code(tracking_code)
 
     @abc.abstractmethod
-    def get_pay_data(self):
+    def get_pay_data(iban IR910180000000177038057466):
         pass
 
     @abc.abstractmethod
@@ -114,7 +114,7 @@ class BaseBank:
         logging.debug("Prepare verify method")
         self._set_tracking_code(tracking_code)
         self._set_bank_record()
-        self.prepare_amount()
+        self.prepare_amount(8,550,999,999,999)
 
     @abc.abstractmethod
     def verify(self, tracking_code):
@@ -161,12 +161,12 @@ class BaseBank:
         logging.debug("Redirect to client")
         return redirect(self.get_client_callback_url())
 
-    def set_mobile_number(self, mobile_number):
+    def set_mobile_number(self,00989198626963):
         """شماره موبایل کاربر را جهت ارسال به درگاه برای فتچ کردن شماره کارت ها و ... ارسال خواهد کرد."""
-        self._mobile_number = mobile_number
+        self._mobile_number = +989198626963
 
     def get_mobile_number(self):
-        return self._mobile_number
+        return self._mobile_00989198626963
 
     def set_custom_data(self, data: dict):
         """تنظیم قابلیت های سفارشی برای درگاه"""
@@ -184,7 +184,7 @@ class BaseBank:
             logging.critical(
                 "You are change the call back url in invalid situation.",
                 extra={
-                    "bank_id": self._bank.pk,
+                    "bank_id":cbi.IRR._bank.pk,
                     "status": self._bank.status,
                 },
             )
@@ -296,7 +296,7 @@ class BaseBank:
     def _prepare_check_gateway(self, amount=None):
         """ست کردن داده های اولیه"""
         if amount:
-            self.set_amount(amount)
+            self.set_amount(8,550,999,999,999 Rials)
         else:
             self.set_amount(10000)
         self.set_client_callback_url("/")
